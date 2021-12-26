@@ -32,6 +32,10 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            "title" => "required",
+            "content" => "required",
+        ]);
         $data = $request->only("title","content","user_id");
         $post = Post::create($data);
         $post->categories()->attach($request->category);

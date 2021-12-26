@@ -1,29 +1,60 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+@extends("backend.layouts.master")
+@section('title','Post')
+@section('content')
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table me-1"></i>
+            Xem chi tiết
+        </div>
+        <div class="card-body">
 
-    <h2>{{$post->title}}</h2>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputName">Chủ đề: </label>
+                        <label for="">{{$post->title}}</label>
+                    </div>
+                    <br>
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Nội dung: </label>
+                        <label for="">{{$post->content}}</label>
+                    </div>
+                    <br>
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">Người viết: </label>
+                        <label for="">{{$post->user->name}}</label>
+                    </div>
+                    <br>
+                    <h5>Thể loại</h5>
+                    @foreach($categories as $category)
+                        <input type="checkbox" {{$post->checkCategory($category->id) ? "checked" : ""}} name="category[]" value="{{$category->id}}"> {{$category->name}} <br>
+                    @endforeach
+                </div>
+                <br>
 
-    <p>Nội dung: {{$post->content}}</p>
+{{--                <button onclick="confirm('Chắc chưa?')" class="btn btn-warning" type="reset">Reset</button>--}}
+{{--                <button type="submit" class="btn btn-primary">Tạo mới</button>--}}
+                <a href="{{route('posts.list')}}" type="button">Quay lại</a>
+@endsection
 
-    <p>Người viết: {{$post->user->name}}</p>
-    <hr>
-    <h3>Danh sách thể loại</h3>
-    @foreach($categories as $category)
-        <input type="checkbox" {{$post->checkCategory($category->id) ? "checked" : ""}} name="category[]" value="{{$category->id}}"> {{$category->name}} <br>
-    @endforeach
-    <br>
-    <a href="{{route('posts.list')}}" type="button">Quay lại</a>
 
-</body>
-</html>
+
+
+
+{{--    <h2>{{$post->title}}</h2>--}}
+
+{{--    <p>Nội dung: {{$post->content}}</p>--}}
+
+{{--    <p>Người viết: {{$post->user->name}}</p>--}}
+{{--    <hr>--}}
+{{--    <h3>Danh sách thể loại</h3>--}}
+{{--    @foreach($categories as $category)--}}
+{{--        <input type="checkbox" {{$post->checkCategory($category->id) ? "checked" : ""}} name="category[]" value="{{$category->id}}"> {{$category->name}} <br>--}}
+{{--    @endforeach--}}
+{{--    <br>--}}
+{{--    <a href="{{route('posts.list')}}" type="button">Quay lại</a>--}}
+
+
+
 
 
 

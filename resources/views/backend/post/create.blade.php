@@ -1,3 +1,10 @@
+@extends("backend.layouts.master")
+@section('title','Post')
+@section('content')
+
+@endsection
+
+
 <!doctype html>
 <html lang="en">
 <head>
