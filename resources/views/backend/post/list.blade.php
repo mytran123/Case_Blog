@@ -1,6 +1,7 @@
 @extends("backend.layouts.master")
-@section('title','Post')
-@section('content')
+@section("title","Post")
+@section("title-content","Quản lý bài viết")
+@section("content")
     <div class="card mb-4">
         <div class="card-header">
             <i class="fas fa-table me-1"></i>
@@ -44,7 +45,9 @@
                         </td>
 
                         <td>{{$post->user->name}}</td>
+
                         <td>
+
                             <a href="{{route('posts.show', $post->id)}}" type="button" class="btn btn-outline-warning">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-ticket-detailed" viewBox="0 0 16 16">
                                     <path d="M4 5.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5Zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5ZM5 7a1 1 0 0 0 0 2h6a1 1 0 1 0 0-2H5Z"></path>

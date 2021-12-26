@@ -1,6 +1,7 @@
 @extends("backend.layouts.master")
-@section('title','Admin')
-@section('content')
+@section("title","Admin")
+@section("title-content","Thêm mới người dùng")
+@section("content")
     <div class="card mb-4">
         <div class="card-header">
             <i class="fas fa-table me-1"></i>
