@@ -19,7 +19,7 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
 
     public function getPostOfUser($userId)
     {
-        $user =$this->getById($id);
+        $user = $this->getById($userId);
         return $user->posts;
     }
 }
