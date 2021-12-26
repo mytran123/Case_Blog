@@ -22,4 +22,28 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
         $user = $this->getById($userId);
         return $user->posts;
     }
+
+    public function store($request)
+    {
+        $data = $request->only("name","email","password");
+        $user = User::create($data);
+//        $user->save();
+        return $user;
+    }
+
+    public function update($request,$id)
+    {
+        User::findOrFail($id);
+        $data = $request->only("name","email","password");
+        return User::query()->where('id','=',$id)->update($data);
+
+//        $user = User::findOrFail($request->$id);
+//        $user->update([
+//            "name" => $request->name,
+//            "email" => $request->email,
+//            "password" => $request->password,
+//        ]);
+//        $user->save();
+
+    }
 }
