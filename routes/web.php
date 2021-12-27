@@ -20,25 +20,28 @@ Route::get('/', function () {
     return redirect()->route("admin.showFormLogin");
 });
 
-Route::prefix('/users')->group(function () {
-    Route::get('/',[UserController::class,"index"])->name("users.list");
-    Route::get('/create',[UserController::class,"create"])->name("users.create");
-    Route::post('/create',[UserController::class,"store"])->name("users.store");
-    Route::get('/{id}/detail',[UserController::class,"show"])->name("users.show");
-    Route::get('/{id}/update',[UserController::class,"edit"])->name("users.edit");
-    Route::post('/{id}/update',[UserController::class,"update"])->name("users.update");
-    Route::get('/{id}/delete',[UserController::class,"destroy"])->name("users.delete");
+Route::middleware("auth")->group(function () {
+    Route::prefix('/users')->group(function () {
+        Route::get('/',[UserController::class,"index"])->name("users.list");
+        Route::get('/create',[UserController::class,"create"])->name("users.create");
+        Route::post('/create',[UserController::class,"store"])->name("users.store");
+        Route::get('/{id}/detail',[UserController::class,"show"])->name("users.show");
+        Route::get('/{id}/update',[UserController::class,"edit"])->name("users.edit");
+        Route::post('/{id}/update',[UserController::class,"update"])->name("users.update");
+        Route::get('/{id}/delete',[UserController::class,"destroy"])->name("users.delete");
+    });
+
+    Route::prefix('/posts')->group(function () {
+        Route::get('/',[PostController::class,"index"])->name("posts.list");
+        Route::get('/create',[PostController::class,"create"])->name("posts.create");
+        Route::post('/create',[PostController::class,"store"])->name("posts.store");
+        Route::get('/{id}/detail',[PostController::class,"show"])->name("posts.show");
+        Route::get('/{id}/update',[PostController::class,"edit"])->name("posts.edit");
+        Route::post('/{id}/update',[PostController::class,"update"])->name("posts.update");
+        Route::get('/{id}/delete',[PostController::class,"destroy"])->name("posts.delete");
+    });
 });
 
-Route::prefix('/posts')->group(function () {
-    Route::get('/',[PostController::class,"index"])->name("posts.list");
-    Route::get('/create',[PostController::class,"create"])->name("posts.create");
-    Route::post('/create',[PostController::class,"store"])->name("posts.store");
-    Route::get('/{id}/detail',[PostController::class,"show"])->name("posts.show");
-    Route::get('/{id}/update',[PostController::class,"edit"])->name("posts.edit");
-    Route::post('/{id}/update',[PostController::class,"update"])->name("posts.update");
-    Route::get('/{id}/delete',[PostController::class,"destroy"])->name("posts.delete");
-});
 
 
 Route::get('/login',[AuthController::class,"showFormLogin"])->name("admin.showFormLogin");
