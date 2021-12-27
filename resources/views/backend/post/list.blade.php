@@ -28,11 +28,11 @@
                 </tr>
                 </tfoot>
                 <tbody>
-                @foreach($posts as $post)
+                @foreach($posts as $key => $post)
                     <tr>
-                        <td>{{$post->id}}</td>
+                        <td>{{$key+1}}</td>
                         <td>{{$post->title}}</td>
-                        {{--                <td>{{$post->content}}</td>--}}
+{{--                                        <td>{{$post->content}}</td>--}}
 
                         <td>
                             @if(count($post->categories) > 0)
@@ -45,6 +45,7 @@
                         </td>
 
                         <td>{{$post->user->name}}</td>
+
 
                         <td>
 
@@ -75,12 +76,9 @@
             </table>
         </div>
     </div>
+
 @endsection
 
-
-
-
-{{--<body>--}}
 {{--<a type="button" class="btn btn-primary" href="{{route('posts.create')}}">Thêm mới</a>--}}
 {{--<table border="1px">--}}
 {{--    <thead>--}}
@@ -97,7 +95,7 @@
 {{--        <tr>--}}
 {{--            <td>{{$post->id}}</td>--}}
 {{--            <td>{{$post->title}}</td>--}}
-{{--            --}}{{--                <td>{{$post->content}}</td>--}}
+{{--            <td>{{$post->content}}</td>--}}
 
 {{--            <td>--}}
 {{--                @if(count($post->categories) > 0)--}}
@@ -118,5 +116,8 @@
 {{--    @endforeach--}}
 {{--    </tbody>--}}
 {{--</table>--}}
-{{--</body>--}}
+
+
+
+
 
