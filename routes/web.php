@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\SocialController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -56,3 +57,7 @@ Route::post('/register',[AuthController::class,"register"])->name("admin.registe
 Route::get('/password',[AuthController::class,"showFormResetPassword"])->name("admin.showFormResetPassword");
 Route::post('/password',[AuthController::class,"resetPassword"])->name("admin.resetPassword");
 
+
+
+Route::get('/auth/redirect/{provider}', [SocialController::class,'redirect']);
+Route::get('/callback/{provider}', [SocialController::class, 'callback']);

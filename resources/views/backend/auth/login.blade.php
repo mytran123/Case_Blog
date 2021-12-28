@@ -49,6 +49,18 @@
                         <p class="mb-0">Chưa có tài khoản?</p>
                         <a href="{{route('admin.showFormRegister')}}">Đăng ký</a>
                     </div>
+
+                    <div class="form-group row mb-0">
+                        <div class="col-md-8 offset-md-4">
+                            <a href="{{ url('/auth/redirect/google') }}" class="btn btn-primary"><i
+                                    class="fa fa-google"></i> Google</a>
+                        </div>
+                        <div class="col-md-8 offset-md-4">
+                            <a href="{{ url('/auth/redirect/github') }}" class="btn btn-primary"><i
+                                    class="fa fa-github"></i> Github</a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

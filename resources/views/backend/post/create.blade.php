@@ -13,18 +13,26 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputName">Tiêu đề</label>
-                        <input type="text" class="form-control" id="inputName" name="title" placeholder="Nhập tiêu đề">
+                        <input type="text" class="form-control" id="inputName" name="title" placeholder="Nhập tiêu đề" value="{{old('title')}}">
+                        @error('title')
+                        <p class="text text-danger">{{$message}}</p>
+                        @enderror
                     </div>
                     <br>
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Nội dung</label>
-                        <input type="text" class="form-control" id="inputEmail4" name="content" placeholder="Nhập nội dung">
+                        <input type="text" class="form-control" id="inputEmail4" name="content" placeholder="Nhập nội dung" value="{{old('content')}}">
+                        @error('content')
+                        <p class="text text-danger">{{$message}}</p>
+                        @enderror
                     </div>
                     <br>
                     <div class="form-group col-md-6">
                         <label for="inputPassword4">User ID</label>
                         <input type="text" class="form-control" id="inputPassword4" name="user_id" placeholder="ID user" value="1">
-
+                        @error('user_id')
+                        <p class="text text-danger">{{$message}}</p>
+                        @enderror
                     </div>
                 </div>
                 <br>

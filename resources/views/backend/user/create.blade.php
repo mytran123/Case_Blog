@@ -13,17 +13,26 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputName">Name</label>
-                        <input type="text" class="form-control" id="inputName" name="name" placeholder="Nhập tên">
+                        <input type="text" class="form-control" id="inputName" name="name" placeholder="Nhập tên" value="{{old('name')}}">
+                        @error('name')
+                        <p class="text text-danger">{{$message}}</p>
+                        @enderror
                     </div>
                     <br>
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Email</label>
-                        <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Nhập email">
+                        <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Nhập email" value="{{old('email')}}">
+                        @error('email')
+                        <p class="text text-danger">{{$message}}</p>
+                        @enderror
                     </div>
                     <br>
                     <div class="form-group col-md-6">
                         <label for="inputPassword4">Password</label>
                         <input type="password" class="form-control" id="inputPassword4" name="password" placeholder="Nhập password">
+                        @error('password')
+                        <p class="text text-danger">{{$message}}</p>
+                        @enderror
                     </div>
                 </div>
                 <br>

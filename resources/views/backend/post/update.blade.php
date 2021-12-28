@@ -14,11 +14,17 @@
                     <div class="form-group col-md-6">
                         <label for="inputName">Tiêu đề</label>
                         <input type="text" class="form-control" id="inputName" name="title" placeholder="Nhập tiêu đề" value="{{$post->title}}">
+                        @error('title')
+                        <p class="text text-danger">{{$message}}</p>
+                        @enderror
                     </div>
                     <br>
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Nội dung</label>
                         <input type="text" class="form-control" id="inputEmail4" name="content" placeholder="Nhập nội dung" value="{{$post->content}}">
+                        @error('content')
+                        <p class="text text-danger">{{$message}}</p>
+                        @enderror
                     </div>
                     <br>
                     <div class="form-group col-md-6">
