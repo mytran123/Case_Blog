@@ -72,7 +72,7 @@
                             </a>
 
 {{--                            href="{{route('posts.addToFavorite',$post->id)}}"--}}
-                            <a href="" type="button" class="btn btn-outline-danger">
+                            <a href="{{route('posts.addToFavorite',$post->id)}}" type="button" class="btn btn-outline-danger">
                                 <i class="fas fa-heart"></i>
                             </a>
                         </td>

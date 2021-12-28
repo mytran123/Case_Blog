@@ -42,7 +42,7 @@ Route::middleware("auth")->group(function () {
         Route::get('/{id}/bookmark',[PostController::class,"addToFavorite"])->name("posts.addToFavorite");
 
         Route::get('/bookmark',[PostController::class,"showFormFavorite"])->name("posts.showFormFavorite");
-        Route::get('/{id}/bookmark',[PostController::class,"deleteFavorite"])->name("posts.deleteFavorite");
+        Route::get('/{id}/deleteFavorite',[PostController::class,"deleteFavorite"])->name("posts.deleteFavorite");
     });
 });
 
