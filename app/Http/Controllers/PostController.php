@@ -71,4 +71,41 @@ class PostController extends Controller
         $post->delete();
         return redirect()->route("posts.list");
     }
+
+    public function addToFavorite($id)
+    {
+        $post = Post::findOrFail($id);
+        $bookmark = session()->get('bookmark1',[]);
+        if (!isset($bookmark[$id])) {
+            $bookmark[$id] = array(
+                "id" => $post->id,
+                "title" => $post->title,
+                "content" => $post->content,
+                "quantity" => 1
+            );
+        } else {
+            $bookmark[$id]['quantity']++;
+        }
+        session()->put('bookmark1',$bookmark);
+//        return view('backend.post.favorite',compact('bookmark'));
+        return redirect()->back();
+    }
+
+    public function showFormFavorite()
+    {
+        $favorites = session()->get('bookmark1');
+        return view("backend.post.favorite",compact("favorites"));
+    }
+
+    public function deleteFavorite($id)
+    {
+        $favorites = session()->get('bookmark1');
+        if ($favorites[$id]['quantity'] > 1) {
+            $favorites[$id]['quantity']--;
+        } else {
+            unset($favorites[$id]);
+        }
+        session()->put('bookmark1',$favorites);
+        return redirect()->back();
+    }
 }

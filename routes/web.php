@@ -39,6 +39,10 @@ Route::middleware("auth")->group(function () {
         Route::get('/{id}/update',[PostController::class,"edit"])->name("posts.edit");
         Route::post('/{id}/update',[PostController::class,"update"])->name("posts.update");
         Route::get('/{id}/delete',[PostController::class,"destroy"])->name("posts.delete");
+        Route::get('/{id}/bookmark',[PostController::class,"addToFavorite"])->name("posts.addToFavorite");
+
+        Route::get('/bookmark',[PostController::class,"showFormFavorite"])->name("posts.showFormFavorite");
+        Route::get('/{id}/bookmark',[PostController::class,"deleteFavorite"])->name("posts.deleteFavorite");
     });
 });
 
