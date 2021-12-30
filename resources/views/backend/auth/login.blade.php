@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="{{asset('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')}}">
 
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css">
+
+    <link rel="stylesheet" href="https://static.fontawesome.com/css/fontawesome-app.css">
 
 </head>
 <body>
@@ -32,10 +35,20 @@
 
                             <input type="text" name="email" class="form-control" placeholder="Nhập Email" required>
                         </div>
+
                         <div class="form-group">
-                            <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
-                            <input type="password" name="password" class="form-control" placeholder="Nhập mật khẩu" required>
+{{--                            <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>--}}
+{{--                            <input type="password" name="password" class="form-control" placeholder="Nhập mật khẩu" required>--}}
+                            <label class="sr-only" for="inlineFormInputGroup">Password</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend" id="icon-eye-password">
+                                    <div class="input-group-text"><i id="eye-password" class="fas fa-eye-slash"></i></div>
+                                </div>
+                                <input type="password" id="password" name="password" class="form-control" id="inlineFormInputGroup" placeholder="Nhập mật khẩu">
+                            </div>
                         </div>
+
+
                         <div class="form-group d-md-flex">
                             <div class="w-100 text-md-right">
                                 <a href="{{route('admin.showFormResetPassword')}}">Quên mật khẩu</a>
@@ -61,7 +74,8 @@
         </div>
     </div>
 </section>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{{asset('js/login.js')}}"></script>
 <script src="{{asset('js/jquery.min.js')}}"></script>
 <script src="{{asset('js/popper.js')}}"></script>
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
