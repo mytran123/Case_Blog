@@ -20,15 +20,15 @@
                     <th colspan="3">Action</th>
                 </tr>
                 </thead>
-                <tfoot>
-                <tr>
-                    <th>ID</th>
-                    <th>Title</th>
-                    <th>Content</th>
-                    <th>User</th>
-                    <th>Action</th>
-                </tr>
-                </tfoot>
+{{--                <tfoot>--}}
+{{--                <tr>--}}
+{{--                    <th>ID</th>--}}
+{{--                    <th>Title</th>--}}
+{{--                    <th>Content</th>--}}
+{{--                    <th>User</th>--}}
+{{--                    <th>Action</th>--}}
+{{--                </tr>--}}
+{{--                </tfoot>--}}
                 <tbody>
                 @foreach($posts as $key => $post)
                     <tr>
@@ -81,6 +81,7 @@
                 @endforeach
                 </tbody>
             </table>
+            {{$posts->links()}}
         </div>
     </div>
 

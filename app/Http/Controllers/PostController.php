@@ -20,7 +20,8 @@ class PostController extends Controller
 
     public function index()
     {
-        $posts = $this->postRepository->getAll();
+//        $posts = $this->postRepository->getAll();
+        $posts = Post::paginate(5);
         return view("backend.post.list", compact("posts"));
     }
 
