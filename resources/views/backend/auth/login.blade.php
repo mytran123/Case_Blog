@@ -41,7 +41,7 @@
                                 <div class="input-group-prepend">
                                     <div class="input-group-text"><i class="fas fa-envelope"></i></div>
                                 </div>
-                                <input type="text" id="password" name="email" class="form-control" id="inlineFormInputGroup" placeholder="Nhập email">
+                                <input type="text" id="email" name="email" class="form-control" id="inlineFormInputGroup" placeholder="Nhập email">
                             </div>
                         </div>
 
